@@ -1,0 +1,18 @@
+1) Implicit:
+
+	--1: AnimatedContainer (смена вкладки): lib/screens/home_screen.dart строки 205–234
+	--2: AnimatedScale (кнопка выбора пользователя) строки 122–143
+	--3: AnimatedContainer (поле поиска на экране товаров) lib/screens/products/product_list_screen.dart строки 433–472
+	--4: AnimatedSwitcher: lib/screens/products/product_list_screen.dart строки 277–289
+
+3) On-end:
+	-- lib/screens/home_screen.dart (стр 205–218)
+4) TweenAnimationBuilder:
+	--lib/screens/employee_list_screen.dart  (стр. 462–474) карточка сотрудника как появляется
+	--lib/screens/products/product_list_screen.dart (стр 494-650) карточки товаров как появляются 
+5) Explicit:
+	-- lib/screens/employee_list_screen.dart (стр. 429–447) кнопка "+" на странице сотрудников
+	-- lib/screens/home_screen.dart (стр 24–46) крутится кнопка смены пользователя 
+6) Staggered:
+	-- lib/screens/employee_detail_screen.dart (стр 94-98) (детали сотрудника выезжают по очереди)
+	-- EmployeeListScreen (стр 61–92) (элементы header на станице сотрудников появляются лесенкой) 

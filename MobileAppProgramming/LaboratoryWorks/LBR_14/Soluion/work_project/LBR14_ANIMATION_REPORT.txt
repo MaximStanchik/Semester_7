@@ -1,0 +1,164 @@
+LBR_14 — Отчёт по анимациям (где и что сделано)
+
+1) Минимум 3 Implicit анимации (Animated*)
+
+1.1) AnimatedScale
+- Файл: lib/screens/home_screen.dart
+- Класс/экран: HomeScreen -> _HomeScreenState
+- Место: AnimatedScale для кнопки выбора пользователя
+- Строки: 115-136
+
+1.2) AnimatedContainer + onEnd
+- Файл: lib/screens/home_screen.dart
+- Класс/экран: HomeScreen -> _HomeScreenState
+- Место: AnimatedContainer в элементе нижней навигации (_buildBottomNavItem)
+- Строки: 198-243
+
+1.3) AnimatedContainer
+- Файл: lib/screens/products/product_list_screen.dart
+- Класс/экран: ProductListScreen -> _ProductListScreenState
+- Место: AnimatedContainer для SearchBar (_buildSearchBar)
+- Строки: 421-460
+
+(Дополнительно) AnimatedContainer + AnimatedSwitcher
+- Файл: lib/screens/employee_edit_screen.dart
+- Класс/экран: EmployeeEditScreen -> _EmployeeEditScreenState
+- Место: AnimatedContainer для кнопки сохранения + AnimatedSwitcher для иконки/текста
+- Строки: 211-261 (AnimatedContainer), 229-246 и 247-259 (AnimatedSwitcher)
+
+
+2) Кастомная кривая (Curve) по варианту 11: f(t)=sin(t * π/2)
+
+2.1) Реализация Curve
+- Файл: lib/utils/animations.dart
+- Класс: SinInCurve extends Curve
+- Формула: return sin(t * pi / 2)
+- Строки: 5-12 (формула на 10 строке)
+
+2.2) Применение кастомной Curve
+- Файл: lib/screens/home_screen.dart
+  - AnimatedScale curve: const SinInCurve()
+  - Строки: 115-119
+  - AnimatedContainer curve: const SinInCurve()
+  - Строки: 198-201
+
+- Файл: lib/screens/products/product_list_screen.dart
+  - TweenAnimationBuilder curve: const SinInCurve() (progress % и индикатор)
+  - Строки: 345-379
+  - AnimatedContainer curve: const SinInCurve() (search bar)
+  - Строки: 422-427
+
+- Файл: lib/screens/employee_list_screen.dart
+  - Staggered-анимация через Interval(..., curve: SinInCurve())
+  - Строки: 58-90
+
+
+3) Действие по окончанию анимации (onEnd: ...)
+
+- Файл: lib/screens/home_screen.dart
+- Класс/экран: HomeScreen -> _HomeScreenState
+- Место: AnimatedContainer в _buildBottomNavItem
+- onEnd: показывает SnackBar после завершения анимации переключения вкладки
+- Строки: 201-211
+
+
+4) Несколько анимаций с использованием TweenAnimationBuilder
+
+4.1) BottomNav icon scale
+- Файл: lib/screens/home_screen.dart
+- Место: TweenAnimationBuilder<double> внутри _buildBottomNavItem (scale иконки)
+- Строки: 227-242
+
+4.2) Progress card — проценты
+- Файл: lib/screens/products/product_list_screen.dart
+- Место: TweenAnimationBuilder<double> для текста процентов
+- Строки: 345-360
+
+4.3) Progress card — CircularProgressIndicator value
+- Файл: lib/screens/products/product_list_screen.dart
+- Место: TweenAnimationBuilder<double> для CircularProgressIndicator
+- Строки: 366-378
+
+4.4) Employee cards — появление/сдвиг карточки
+- Файл: lib/screens/employee_list_screen.dart
+- Место: TweenAnimationBuilder<double> в _buildEmployeeCard (opacity + translate)
+- Строки: 448-460
+
+4.5) Employee cards — badge scale
+- Файл: lib/screens/employee_list_screen.dart
+- Место: TweenAnimationBuilder<double> (scale бейджа с номером)
+- Строки: 479-500
+
+4.6) Employee cards — chip scale / opacity
+- Файл: lib/screens/employee_list_screen.dart
+- Место: TweenAnimationBuilder<double> для Age и Salary
+- Строки: 558-579 (Age), 581-602 (Salary)
+
+
+5) Минимум 2 явных (Explicit) анимации (AnimationController)
+
+5.1) EmployeeListScreen: header/folder/fab controllers
+- Файл: lib/screens/employee_list_screen.dart
+- Контроллеры: _headerController, _folderController, _fabController
+- Строки: 21-23 (поля), 43-56 (инициализация)
+- Использование (примеры):
+  - ScaleTransition(scale: _folderScale)
+    Строки: 217-250
+  - RotationTransition(turns: ... animate(CurvedAnimation(parent: _folderController ...)))
+    Строки: 234-239
+  - ScaleTransition для FAB (анимация "дышит")
+    Строки: 413-431
+
+5.2) ProductListScreen: _introController
+- Файл: lib/screens/products/product_list_screen.dart
+- Контроллер: _introController
+- Строки: 26 (поле), 42-45 (инициализация)
+- Использование: FadeTransition/SlideTransition/ScaleTransition через анимации, построенные от controller
+- Примеры строк: 138-171, 154-162
+
+5.3) EmployeeDetailScreen: _controller
+- Файл: lib/screens/employee_detail_screen.dart
+- Контроллер: _controller
+- Строки: 15 (поле), 22-25 (инициализация)
+
+
+6) Минимум 2 ступенчатых (Staggered) анимации (>=5 шагов), разные
+
+6.1) ProductListScreen — staggered intro (5 шагов)
+- Файл: lib/screens/products/product_list_screen.dart
+- Контроллер: _introController
+- Реализация: CurvedAnimation + Interval(...) для разных частей UI
+- Шаги (5 разных Interval):
+  - headerCurve Interval(0.00, 0.18)
+  - progressCurve Interval(0.10, 0.32)
+  - categoriesCurve Interval(0.24, 0.48)
+  - exerciseCurve Interval(0.40, 0.62)
+  - searchCurve Interval(0.56, 0.80)
+- Строки: 49-81
+
+6.2) EmployeeListScreen — staggered header (5 шагов)
+- Файл: lib/screens/employee_list_screen.dart
+- Контроллер: _headerController
+- Реализация: CurvedAnimation + Interval(..., curve: SinInCurve()) для разных элементов UI
+- Шаги (5 разных Interval):
+  - discoverCurve Interval(0.00, 0.22)
+  - employeesCurve Interval(0.12, 0.35)
+  - folderCurve Interval(0.28, 0.50)
+  - searchCurve Interval(0.46, 0.70)
+  - sortCurve Interval(0.66, 0.90)
+- Строки: 58-90
+
+(Дополнительно) EmployeeDetailScreen — staggered rows (7 шагов)
+- Файл: lib/screens/employee_detail_screen.dart
+- Контроллер: _controller
+- Реализация: List.generate(rowsCount=7) + Interval(start, end)
+- Строки: 27-48
+
+
+Итог:
+- Implicit анимации: да (AnimatedScale, AnimatedContainer, AnimatedSwitcher и т.д.)
+- Custom Curve sin(t*pi/2): да (SinInCurve)
+- onEnd: да (HomeScreen, AnimatedContainer)
+- TweenAnimationBuilder: да (несколько мест)
+- Explicit: да (несколько AnimationController)
+- Staggered >=5: да (ProductListScreen и EmployeeListScreen; дополнительно EmployeeDetailScreen)
