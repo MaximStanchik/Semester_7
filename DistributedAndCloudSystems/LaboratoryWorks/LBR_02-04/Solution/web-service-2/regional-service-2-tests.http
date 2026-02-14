@@ -1,0 +1,40 @@
+@ws2_host = http://localhost:3002
+@ct = application/json
+
+### GET /measurements — получить все измерения
+GET {{ws2_host}}/measurements
+Content-Type: {{ct}}
+
+### POST /measurements — создать измерение
+POST {{ws2_host}}/measurements
+Content-Type: {{ct}}
+
+{
+  "channel": "CH-101",
+  "value": 77.77
+}
+
+### PUT /measurements — апсерт (репликация из центра)
+PUT {{ws2_host}}/measurements
+Content-Type: {{ct}}
+
+{
+  "data": [
+    { "id": 5, "channel": "CH-105", "value": 10.5 },
+    { "id": 6, "channel": "CH-106", "value": 11.6 }
+  ]
+}
+
+### POST /sync-time — синхронизация времени
+POST {{ws2_host}}/sync-time
+Content-Type: {{ct}}
+
+{
+  "centralTime": "{{$datetime rfc1123}}"
+}
+
+### NEGATIVE: /sync-time — без centralTime
+POST {{ws2_host}}/sync-time
+Content-Type: {{ct}}
+
+{}

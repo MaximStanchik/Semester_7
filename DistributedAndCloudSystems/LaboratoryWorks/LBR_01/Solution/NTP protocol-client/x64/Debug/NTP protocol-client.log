@@ -1,0 +1,4 @@
+﻿  NTP_Client.cpp
+D:\User\Documents\GitHub\Semester_7\DistributedAndCloudSystems\LaboratoryWorks\LBR_01\Solution\NTP protocol-client\NTP_Client.cpp(100,39): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+D:\User\Documents\GitHub\Semester_7\DistributedAndCloudSystems\LaboratoryWorks\LBR_01\Solution\NTP protocol-client\NTP_Client.cpp(101,39): warning C4244: =: преобразование "__int64" в "int", возможна потеря данных
+  NTP protocol-client.vcxproj -> D:\User\Documents\GitHub\Semester_7\DistributedAndCloudSystems\LaboratoryWorks\LBR_01\Solution\x64\Debug\NTP-Client.exe

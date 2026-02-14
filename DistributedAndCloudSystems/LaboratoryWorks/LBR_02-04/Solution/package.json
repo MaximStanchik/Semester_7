@@ -1,0 +1,16 @@
+{
+  "name": "lab04-06",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "system": "start ts-node web-service-1/app.ts & start ts-node web-service-2/app.ts & start ts-node central-service/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
+  }
+}

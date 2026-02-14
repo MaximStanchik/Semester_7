@@ -1,0 +1,25 @@
+@central_host = http://localhost:3000
+@ws1_host = http://localhost:3001
+@ws2_host = http://localhost:3002
+@ct = application/json
+
+### GET /poll — параллельный опрос сервисов 1 и 2
+GET {{central_host}}/poll
+Content-Type: {{ct}}
+
+### GET /central-data — список измерений, сохранённых в центре
+GET {{central_host}}/central-data
+Content-Type: {{ct}}
+
+### NEGATIVE: /poll — один из сервисов недоступен
+# Перед запуском останови ws2 или подмени {{ws2_host}} на несуществующий порт
+GET {{central_host}}/poll
+Content-Type: {{ct}}
+
+### Service 1 — sanity check (не из центра, просто проверка доступности сервиса 1)
+GET {{ws1_host}}/measurements
+Content-Type: {{ct}}
+
+### Service 2 — sanity check (не из центра, просто проверка доступности сервиса 2)
+GET {{ws2_host}}/measurements
+Content-Type: {{ct}}
