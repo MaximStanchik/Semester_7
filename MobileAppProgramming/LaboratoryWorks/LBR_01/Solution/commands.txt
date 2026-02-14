@@ -1,0 +1,2 @@
+ flutter run -d emulator-5554 --verbose в терминале IDE
+для запуска эмулятора в cmd: D:\AndroidStudioSdk\emulator>emulator -avd New_Android_Virtual_Device
