@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\opencv\build\include;D:\opencv\sources\include;D:\opencv\include;D:\vcpkg\installed\x64-windows\include;D:\abseil-cpp;D:\protobuf\src;D:\glog\src;D:\mediapipe-0.10.26;D:\mediapipe-0.10.26\bazel-bin;D:\mediapipe-0.10.26\bazel-mediapipe;D:\mediapipe-0.10.26\bazel-bin\external;D:\mediapipe-0.10.26\bazel-bin\external\com_google_absl;D:\mediapipe-0.10.26\bazel-mediapipe\external\com_google_absl;D:\mediapipe-0.10.26\bazel-bin\external\com_google_protobuf\src;D:\mediapipe-0.10.26\bazel-bin\external\com_github_gflags_gflags\src\include;D:\mediapipe-0.10.26\bazel-bin\external\com_github_glog\src\src\windows;D:\mediapipe-0.10.26\bazel-bin\external\com_github_glog\src\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\opencv\lib;D:\opencv\build\lib;D:\opencv\build\x64\vc15\lib;D:\opencv\build\x64\vc16\lib;D:\opencv\build\x64\vc17\lib;D:\vcpkg\installed\x64-windows\lib;D:\tensorflow\bazel-bin;D:\mediapipe-0.10.26\bazel-bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
+

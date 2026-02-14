@@ -1,0 +1,57 @@
+матричные фильтры (хабр), свертка, как работает свертка
+
+
+
+import cv2
+import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')  # Изменяем бэкенд на TkAgg
+import matplotlib.pyplot as plt
+
+# Загрузка изображения
+img = cv2.imread(r'D:\User\Documents\GitHub\Semester_7\TFDaA\LaboratoryWorks\LBR_02\Solution\LBR_01\static\3_2.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Улучшение контраста для лучшего выделения границ
+clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+gray_enhanced = clahe.apply(gray)
+
+# Размытие для уменьшения шума
+blurred = cv2.GaussianBlur(gray_enhanced, (9, 9), 2)
+
+# Обнаружение окружностей с параметрами для крупных объектов
+circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT,
+                           dp=1,
+                           minDist=200,
+                           param1=100,
+                           param2=30,
+                           minRadius=80,
+                           maxRadius=200)
+
+# Отображение результатов
+output = img.copy()
+detected_count = 0
+
+if circles is not None:
+    circles = np.uint16(np.around(circles))
+    sorted_circles = sorted(circles[0], key=lambda x: x[2], reverse=True)
+
+    for i in sorted_circles[:3]:  # Берем только 3 самые крупные окружности
+        center = (i[0], i[1])
+        radius = i[2]
+
+        if radius >= 80:
+            cv2.circle(output, center, radius, (0, 255, 0), 4)  # Зеленый
+            cv2.circle(output, center, 3, (0, 0, 255), 6)  # Красный
+            detected_count += 1
+            print(f"Обнаружена окружность: центр {center}, радиус {radius}")
+
+print(f"Обнаружено крупных окружностей: {detected_count}")
+
+# Отображение результата
+plt.figure(figsize=(12, 8))
+plt.imshow(cv2.cvtColor(output, cv2.COLOR_BGR2RGB))
+plt.title(f"Обнаружено крупных окружностей: {detected_count}")
+plt.axis('off')
+plt.pause(0.001)
+plt.show()

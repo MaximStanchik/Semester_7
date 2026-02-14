@@ -1,0 +1,4 @@
+﻿  gesture_recognizer.cpp
+D:\mediapipe-0.10.26\mediapipe\framework\calculator_graph.h(37,10): error C1083: Не удается открыть файл включение: mediapipe/framework/calculator.pb.h: No such file or directory,
+  (компиляция исходного файла "gesture_recognizer.cpp")
+  
