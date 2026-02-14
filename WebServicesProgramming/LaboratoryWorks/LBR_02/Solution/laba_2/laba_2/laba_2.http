@@ -1,0 +1,326 @@
+### Base URLs
+@host = https://localhost:7217
+
+@swagger = https://localhost:7217/swagger/index.html
+
+@api_results = /api/Results
+
+### Переменные для токенов
+@readerToken = "Bearer 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InJlYWRlciIsInJvbGUiOiJSRUFERVIiLCJuYmYiOjE3NjEzNzQ4NDUsImV4cCI6MTc2MTM3ODQ0NSwiaWF0IjoxNzYxMzc0ODQ1fQ.TwZDUAgxGx_y4F_jm4USUbjAZg9a5_pK03FjtXkj-48'"
+@writerToken = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IndyaXRlciIsInJvbGUiOiJXUklURVIiLCJuYmYiOjE3NjEzNzMzMzcsImV4cCI6MTc2MTM3NjkzNywiaWF0IjoxNzYxMzczMzM3fQ.t1uSLqPtmPMwA03AQOQgIWtI3O-_8eZGjDX3B23cCfk"
+
+### 0. ПРОВЕРКА SWAGGER UI
+GET {{swagger}}
+
+### 1. АУТЕНТИФИКАЦИЯ
+
+### 1.1. Вход как READER (сохранить токен в переменную)
+POST {{host}}{{api_results}}/SignIn
+Content-Type: application/json
+
+{
+  "login": "reader",
+  "password": "readme"
+}
+
+### 1.2. Вход как WRITER (сохранить токен в переменную)
+POST {{host}}{{api_results}}/SignIn
+Content-Type: application/json
+
+{
+  "login": "writer",
+  "password": "writeme"
+}
+
+### 1.3. Неверные учетные данные
+POST {{host}}{{api_results}}/SignIn
+Content-Type: application/json
+
+{
+  "login": "invalid",
+  "password": "invalid"
+}
+
+### 2. RESULTS ENDPOINTS (требуют аутентификации)
+
+### 2.1. Получить все результаты (требует роль READER)
+GET {{host}}{{api_results}}
+Authorization: Bearer {{readerToken}}
+Accept: application/json
+
+### 2.2. Получить результат по ID (требует роль READER)
+GET {{host}}{{api_results}}/1
+Authorization: Bearer {{readerToken}}
+Accept: application/json
+
+### 2.3. Создать новый результат (требует роль WRITER)
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Тестовое значение 1"
+}
+
+### 2.4. Создать еще один результат
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Тестовое значение 2"
+}
+
+### 2.5. Обновить результат по ID (требует роль WRITER)
+PUT {{host}}{{api_results}}/1
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Обновленное значение"
+}
+
+### 2.6. Удалить результат по ID (требует роль WRITER)
+DELETE {{host}}{{api_results}}/2
+Authorization: Bearer {{writerToken}}
+
+### 3. ТЕСТЫ ВАЛИДАЦИИ
+
+### 3.1. Пустое значение
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": ""
+}
+
+### 3.2. Отсутствует поле value
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "wrongField": "test"
+}
+
+### 3.3. Null значение
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": null
+}
+
+### 3.4. Пробелы в значении
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "   "
+}
+
+### 4. ТЕСТЫ АВТОРИЗАЦИИ
+
+### 4.1. Попытка POST без токена
+POST {{host}}{{api_results}}
+Content-Type: application/json
+
+{
+  "value": "Без авторизации"
+}
+
+### 4.2. Попытка GET без токена
+GET {{host}}{{api_results}}
+
+### 4.3. Попытка PUT без токена
+PUT {{host}}{{api_results}}/1
+Content-Type: application/json
+
+{
+  "value": "Без авторизации"
+}
+
+### 4.4. Попытка DELETE без токена
+DELETE {{host}}{{api_results}}/1
+
+### 4.5. Неверный токен
+GET {{host}}{{api_results}}
+Authorization: Bearer invalid_token
+
+### 5. ТЕСТЫ НЕСУЩЕСТВУЮЩИХ РЕСУРСОВ
+
+### 5.1. Получить несуществующий результат
+GET {{host}}{{api_results}}/999
+Authorization: Bearer {{readerToken}}
+Accept: application/json
+
+### 5.2. Обновить несуществующий результат
+PUT {{host}}{{api_results}}/999
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Обновление несуществующего"
+}
+
+### 5.3. Удалить несуществующий результат
+DELETE {{host}}{{api_results}}/999
+Authorization: Bearer {{writerToken}}
+
+### 6. ПОСЛЕДОВАТЕЛЬНЫЙ ТЕСТ (полный сценарий)
+
+### 6.1. Аутентификация как WRITER (если еще не сделано)
+POST {{host}}{{api_results}}/SignIn
+Content-Type: application/json
+
+{
+  "login": "writer",
+  "password": "writeme"
+}
+
+### 6.2. Создать первый результат
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Первый результат"
+}
+
+### 6.3. Создать второй результат
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Второй результат"
+}
+
+### 6.4. Получить все результаты
+GET {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 6.5. Получить первый результат по ID
+GET {{host}}{{api_results}}/1
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 6.6. Обновить второй результат
+PUT {{host}}{{api_results}}/2
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Обновленный второй результат"
+}
+
+### 6.7. Получить обновленный результат
+GET {{host}}{{api_results}}/2
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 6.8. Удалить первый результат
+DELETE {{host}}{{api_results}}/1
+Authorization: Bearer {{writerToken}}
+
+### 6.9. Получить оставшиеся результаты
+GET {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 6.10. Удалить последний результат
+DELETE {{host}}{{api_results}}/2
+Authorization: Bearer {{writerToken}}
+
+### 6.11. Проверить, что коллекция пуста
+GET {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 7. ТЕСТЫ РОЛЕЙ
+
+### 7.1. Аутентификация как READER (если еще не сделано)
+POST {{host}}{{api_results}}/SignIn
+Content-Type: application/json
+
+{
+  "login": "reader",
+  "password": "readme"
+}
+
+### 7.2. READER может читать
+GET {{host}}{{api_results}}
+Authorization: Bearer {{readerToken}}
+Accept: application/json
+
+### 7.3. READER не может создавать (должен вернуть 403)
+POST {{host}}{{api_results}}
+Authorization: Bearer {{readerToken}}
+Content-Type: application/json
+
+{
+  "value": "READER пытается создать"
+}
+
+### 7.4. READER не может обновлять (должен вернуть 403)
+PUT {{host}}{{api_results}}/1
+Authorization: Bearer {{readerToken}}
+Content-Type: application/json
+
+{
+  "value": "READER пытается обновить"
+}
+
+### 7.5. READER не может удалять (должен вернуть 403)
+DELETE {{host}}{{api_results}}/1
+Authorization: Bearer {{readerToken}}
+
+### 8. ТЕСТЫ ПРОИЗВОДИТЕЛЬНОСТИ
+
+### 8.1. Создать много результатов
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Результат 1"
+}
+
+###
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Результат 2"
+}
+
+###
+POST {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Результат 3"
+}
+
+### 8.2. Получить все результаты
+GET {{host}}{{api_results}}
+Authorization: Bearer {{writerToken}}
+Accept: application/json
+
+### 8.3. Массовое удаление
+DELETE {{host}}{{api_results}}/1
+Authorization: Bearer {{writerToken}}
+
+###
+DELETE {{host}}{{api_results}}/2
+Authorization: Bearer {{writerToken}}
+
+###
+DELETE {{host}}{{api_results}}/3
+Authorization: Bearer {{writerToken}}

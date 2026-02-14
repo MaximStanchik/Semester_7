@@ -1,0 +1,12 @@
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\bin\Debug\net8.0\ResultsAuthenticate.deps.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\bin\Debug\net8.0\ResultsAuthenticate.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\bin\Debug\net8.0\ResultsAuthenticate.pdb
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.csproj.AssemblyReference.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.AssemblyInfoInputs.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.AssemblyInfo.cs
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.csproj.CoreCompileInputs.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\refint\ResultsAuthenticate.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ResultsAuthenticate.pdb
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsAuthenticate\obj\Debug\net8.0\ref\ResultsAuthenticate.dll

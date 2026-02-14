@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="28.2.9">
+  <diagram name="Страница — 1" id="vuyuAKeB03xezx9gbX3_">
+    <mxGraphModel dx="1804" dy="1006" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SiCU9P-i6IKihLcOchNG-1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="320" y="412" width="150" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-2" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;User interface&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;React.js&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="337" y="478" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-3" value="Presenation layer" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="336.5" y="438" width="117" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-4" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="542" y="370" width="366" height="236" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.572;entryY=0.209;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-6" target="SiCU9P-i6IKihLcOchNG-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-6" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Application&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Springboot&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="680" y="429" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-7" value="Buisness layer" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="666.5" y="392" width="117" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-8" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;Controllers&lt;/span&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="564" y="525" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-9" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Buisness Entity&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="679" y="525" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-10" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Services&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="794" y="525" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.169;exitY=1.054;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=65;entryDy=14;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-6" target="SiCU9P-i6IKihLcOchNG-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.675;exitY=1.034;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=14;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-6" target="SiCU9P-i6IKihLcOchNG-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-13" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="980" y="380.5" width="231" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-14" value="&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;RequestDTO&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="990.5" y="422.5" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-15" value="DTO layer" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1037" y="396.5" width="117" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-16" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;JPA Repository&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1053" y="525.5" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-17" value="&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;ResponseDTO&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1111.5" y="422.5" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-14" target="SiCU9P-i6IKihLcOchNG-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="874.5" y="580.5" as="sourcePoint" />
+            <mxPoint x="927.5" y="630.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=40;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-17" target="SiCU9P-i6IKihLcOchNG-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1098.5" y="507.5" as="sourcePoint" />
+            <mxPoint x="1151.5" y="557.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1283" y="488.5" as="targetPoint" />
+            <mxPoint x="1211" y="488.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-21" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1283" y="425.5" width="114" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-22" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Data access&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;Hibernate ORM&lt;/span&gt;&lt;/div&gt;" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1295" y="475.5" width="90" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-23" value="Data layer" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="438.5" width="117" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="542" y="485.5999999999999" as="targetPoint" />
+            <mxPoint x="470" y="485.5999999999999" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SiCU9P-i6IKihLcOchNG-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=365.99999999999994;exitDy=125;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=114.5;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="SiCU9P-i6IKihLcOchNG-4" target="SiCU9P-i6IKihLcOchNG-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,40 @@
+﻿@{ViewBag.Title = "REST Demo";}
+<h2>REST Service Demonstration</h2>
+<label>Value (for POST/PUT):</label>
+<input type="number" id="valueInput" /> <br /> <br />
+<button onclick="sendRequest('GET')">GET</button>
+<button onclick="sendRequest('POST')">POST</button>
+<button onclick="sendRequest('PUT')">PUT</button>
+<button onclick="sendRequest('DELETE')">DELETE</button>
+<h3>Service Response (JSON):</h3>
+<pre id="responseJson">{ }</pre>
+<script>
+    async function sendRequest(method) {
+                const value = document.getElementById('valueInput').value;
+                let url = '/api/SMA';
+
+                if (method === 'GET') {
+                    url += '/result/get';
+                }
+                else if (method === 'POST') {
+                    url += '/result/set?RESULT=' + encodeURIComponent(value);
+                }
+                else if (method === 'PUT') {
+                    url += '/stack/add?ADD=' + encodeURIComponent(value);
+                }
+                else if (method === 'DELETE') {
+                    url += '/stack/pop';
+        }
+        
+        const options = { method: method === 'POST'};
+
+        try {
+            const resp = await fetch(url, options);
+            const data = await resp.json();
+            document.getElementById('responseJson').textContent = JSON.stringify(data, null, 2);
+        }
+        catch (err) {
+            document.getElementById('responseJson').textContent = 'Error: ' + err;
+        }
+    }
+</script>

@@ -1,0 +1,9 @@
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\RestService.exe
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\appsettings.Development.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\appsettings.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\RestService.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\RestService.deps.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\RestService.runtimeconfig.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\RestService.pdb
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\Microsoft.AspNetCore.OpenApi.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_01\Solution\RestService\publish\Microsoft.OpenApi.dll

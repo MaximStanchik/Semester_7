@@ -1,0 +1,12 @@
+### Простой тест аутентификации
+POST http://localhost:5011/api/Results/SignIn
+Content-Type: application/json
+
+{
+  "login": "writer",
+  "password": "writeme"
+}
+
+### Тест с токеном (замените YOUR_TOKEN на токен из ответа выше)
+GET http://localhost:5011/api/Results
+Authorization: Bearer YOUR_TOKEN

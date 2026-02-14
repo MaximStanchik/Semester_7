@@ -1,0 +1,16 @@
+### Тест с вашими токенами
+@readerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InJlYWRlciIsInJvbGUiOiJSRUFERVIiLCJuYmYiOjE3NjEzNTAwOTYsImV4cCI6MTc2MTM1MzY5NiwiaWF0IjoxNzYxMzUwMDk2LCJpc3MiOiJSRVNUMDEiLCJhdWQiOiJSRVNUMDEifQ.TR-uM8ZlOPnmPFziV7VIW33FPymuoGngveFqx7bGopA
+@writerToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IndyaXRlciIsInJvbGUiOiJXUklURVIiLCJuYmYiOjE3NjEzNDk5OTcsImV4cCI6MTc2MTM1MzU5NywiaWF0IjoxNzYxMzQ5OTk3LCJpc3MiOiJSRVNUMDEiLCJhdWQiOiJSRVNUMDEifQ.uv6Tr05IlfyEpwpBPCe_zM5tYCxBq56_Q1tKmrkCJEs
+
+### Тест GET с reader токеном
+GET http://localhost:5011/api/Results
+Authorization: Bearer {{readerToken}}
+
+### Тест POST с writer токеном
+POST http://localhost:5011/api/Results
+Authorization: Bearer {{writerToken}}
+Content-Type: application/json
+
+{
+  "value": "Тестовое значение"
+}

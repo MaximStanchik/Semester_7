@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignalR Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>SignalR Calculator</h1>
+
+        <div class="calculator">
+            <div class="operation-section">
+                <h2>Arithmetic Operations</h2>
+                <div class="input-group">
+                    <input type="number" id="xValue" placeholder="Enter X" step="any">
+                    <input type="number" id="yValue" placeholder="Enter Y" step="any">
+                </div>
+                <div class="buttons">
+                    <button id="sumBtn">SUM</button>
+                    <button id="subBtn">SUB</button>
+                    <button id="mulBtn">MUL</button>
+                    <button id="divBtn">DIV</button>
+                    <button id="factBtn">FACT</button>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h2>Result</h2>
+                <div id="result" class="result-display">No operation performed yet</div>
+            </div>
+
+            <div class="connection-status">
+                <div id="status">Disconnected</div>
+                <button id="connectBtn">Connect</button>
+                <button id="disconnectBtn" disabled>Disconnect</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

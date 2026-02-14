@@ -1,0 +1,580 @@
+### Base URLs
+@host = https://localhost:7063
+@jsonrpc = /jsonrpc
+@sse = /sse
+
+### 1. SSE ПОДКЛЮЧЕНИЕ (запускать в отдельном окне/вкладке)
+
+### 1.1. Подключиться к SSE серверу
+GET {{host}}{{sse}}/subscribe
+Accept: text/event-stream
+Cache-Control: no-cache
+
+### 2. ОДИНОЧНЫЕ ЗАПРОСЫ С SSE УВЕДОМЛЕНИЯМИ
+
+### 2.1. SUM - сложение (позиционные параметры)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [15, 25],
+    "id": 1
+}
+
+### 2.2. SUM - сложение (именованные параметры)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": {"x": 8.5, "y": 3.2},
+    "id": 2
+}
+
+### 2.3. SUB - вычитание
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sub",
+    "params": [50, 17],
+    "id": 3
+}
+
+### 2.4. MUL - умножение
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "mul",
+    "params": [6, 7],
+    "id": 4
+}
+
+### 2.5. DIV - деление (успешное)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "div",
+    "params": [100, 4],
+    "id": 5
+}
+
+### 2.6. DIV - деление на ноль (ошибка с SSE уведомлением)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "div",
+    "params": [10, 0],
+    "id": 6
+}
+
+### 2.7. FACT - факториал (успешный)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [7],
+    "id": 7
+}
+
+### 2.8. FACT - факториал отрицательного числа (ошибка с SSE)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [-3],
+    "id": 8
+}
+
+### 2.9. FACT - факториал большого числа (переполнение)
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [50],
+    "id": 9
+}
+
+### 3. ПАКЕТНЫЕ ЗАПРОСЫ С SSE УВЕДОМЛЕНИЯМИ
+
+### 3.1. Пакетный запрос с разными операциями
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+[
+    {
+        "jsonrpc": "2.0",
+        "method": "sum",
+        "params": [2, 3],
+        "id": 10
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "mul",
+        "params": {"x": 4, "y": 5},
+        "id": 11
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "fact",
+        "params": [6],
+        "id": 12
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "div",
+        "params": [10, 0],
+        "id": 13
+    }
+]
+
+### 3.2. Большой пакетный запрос
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+[
+    {
+        "jsonrpc": "2.0",
+        "method": "sum",
+        "params": [1, 1],
+        "id": 14
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "sub",
+        "params": [5, 2],
+        "id": 15
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "mul",
+        "params": [3, 4],
+        "id": 16
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "div",
+        "params": [20, 5],
+        "id": 17
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "fact",
+        "params": [5],
+        "id": 18
+    }
+]
+
+### 4. ТЕСТЫ ВАЛИДАЦИИ С SSE УВЕДОМЛЕНИЯМИ
+
+### 4.1. Неизвестный метод
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "unknown_method",
+    "params": [1, 2],
+    "id": 19
+}
+
+### 4.2. Неправильные параметры для SUM
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [5],
+    "id": 20
+}
+
+### 4.3. Неправильные параметры для FACT
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [5, 10],
+    "id": 21
+}
+
+### 4.4. Пустые параметры
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [],
+    "id": 22
+}
+
+### 4.5. Параметры null
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": null,
+    "id": 23
+}
+
+### 4.6. Отсутствует метод
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "params": [1, 2],
+    "id": 24
+}
+
+### 4.7. Неправильный тип параметров
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": ["text", 2],
+    "id": 25
+}
+
+### 5. РАЗНЫЕ ФОРМАТЫ ПАРАМЕТРОВ
+
+### 5.1. SUB с именованными параметрами
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sub",
+    "params": {"x": 25, "y": 10},
+    "id": 26
+}
+
+### 5.2. MUL с именованными параметрами
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "mul",
+    "params": {"x": 3.5, "y": 2.5},
+    "id": 27
+}
+
+### 5.3. DIV с именованными параметрами
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "div",
+    "params": {"x": 45.6, "y": 3.2},
+    "id": 28
+}
+
+### 5.4. FACT с именованным параметром
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": {"x": 4},
+    "id": 29
+}
+
+### 6. КОМПЛЕКСНЫЕ СЦЕНАРИИ
+
+### 6.1. Последовательность математических операций
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+[
+    {
+        "jsonrpc": "2.0",
+        "method": "sum",
+        "params": [10, 20],
+        "id": 30
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "mul",
+        "params": [5, 4],
+        "id": 31
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "sub",
+        "params": [100, 45],
+        "id": 32
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "div",
+        "params": [88, 11],
+        "id": 33
+    }
+]
+
+### 6.2. Смешанные успешные и ошибочные операции
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+[
+    {
+        "jsonrpc": "2.0",
+        "method": "sum",
+        "params": [1, 2],
+        "id": 34
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "div",
+        "params": [10, 0],
+        "id": 35
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "mul",
+        "params": [3, 4],
+        "id": 36
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "fact",
+        "params": [-1],
+        "id": 37
+    }
+]
+
+### 7. ТЕСТЫ ГРАНИЧНЫХ ЗНАЧЕНИЙ
+
+### 7.1. FACT с нулем
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [0],
+    "id": 38
+}
+
+### 7.2. FACT с единицей
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [1],
+    "id": 39
+}
+
+### 7.3. DIV с очень маленькими числами
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "div",
+    "params": [0.0001, 0.0001],
+    "id": 40
+}
+
+### 7.4. SUM с отрицательными числами
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [-5, -3],
+    "id": 41
+}
+
+### 7.5. MUL с нулем
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "mul",
+    "params": [5, 0],
+    "id": 42
+}
+
+### 8. ПРОИЗВОДИТЕЛЬНОСТЬ И МНОГОКРАТНЫЕ ВЫЗОВЫ
+
+### 8.1. Быстрые последовательные вызовы
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [100, 200],
+    "id": 43
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sub",
+    "params": [500, 250],
+    "id": 44
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "mul",
+    "params": [12, 8],
+    "id": 45
+}
+
+### 9. НЕГАТИВНЫЕ ТЕСТЫ
+
+### 9.1. Неправильный Content-Type
+POST {{host}}{{jsonrpc}}
+Content-Type: text/plain
+
+Просто текст
+
+### 9.2. Пустое тело запроса
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+### 9.3. Невалидный JSON
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [1, 2],
+    "id": 46
+    невалидный json
+
+### 9.4. Отсутствует jsonrpc версия
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "method": "sum",
+    "params": [1, 2],
+    "id": 47
+}
+
+### 10. ТЕСТИРОВАНИЕ SSE СОЕДИНЕНИЙ
+
+### 10.1. Множественные SSE подключения (запускать в разных вкладках)
+GET {{host}}{{sse}}/subscribe
+Accept: text/event-stream
+Cache-Control: no-cache
+
+### 10.2. SSE с разными клиентами
+GET {{host}}{{sse}}/subscribe
+Accept: text/event-stream
+Cache-Control: no-cache
+
+### 11. ИНТЕГРАЦИОННЫЕ ТЕСТЫ
+
+### 11.1. Полный workflow: SSE + JSON-RPC запросы
+# 1. Сначала подключитесь к SSE в отдельной вкладке
+# 2. Затем выполняйте эти запросы:
+
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [15, 25],
+    "id": 48
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [5],
+    "id": 49
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "div",
+    "params": [10, 0],
+    "id": 50
+}
+
+### 12. ТЕСТЫ С ПАРАЛЛЕЛЬНЫМИ ЗАПРОСАМИ
+
+### 12.1. Параллельные запросы разных методов
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "sum",
+    "params": [10, 15],
+    "id": 51
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "mul",
+    "params": [3, 7],
+    "id": 52
+}
+
+###
+POST {{host}}{{jsonrpc}}
+Content-Type: application/json
+
+{
+    "jsonrpc": "2.0",
+    "method": "fact",
+    "params": [4],
+    "id": 53
+}

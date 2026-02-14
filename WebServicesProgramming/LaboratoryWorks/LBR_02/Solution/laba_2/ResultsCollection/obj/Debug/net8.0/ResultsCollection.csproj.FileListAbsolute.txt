@@ -1,0 +1,12 @@
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\bin\Debug\net8.0\ResultsCollection.deps.json
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\bin\Debug\net8.0\ResultsCollection.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\bin\Debug\net8.0\ResultsCollection.pdb
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.csproj.AssemblyReference.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.GeneratedMSBuildEditorConfig.editorconfig
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.AssemblyInfoInputs.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.AssemblyInfo.cs
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.csproj.CoreCompileInputs.cache
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\refint\ResultsCollection.dll
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ResultsCollection.pdb
+D:\User\Documents\GitHub\Semester_7\WebServicesProgramming\LaboratoryWorks\LBR_02\Solution\laba_2\ResultsCollection\obj\Debug\net8.0\ref\ResultsCollection.dll
